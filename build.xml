@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project default="genfiles" basedir=".">
+	<property name="generated.source.dir" value="${basedir}" />
+
+	<target name="genfiles" description="Generate the files">
+		<taskdef name="ibator" classname="org.apache.ibatis.ibator.ant.IbatorAntTask"
+			classpath="${basedir}/lib/ibator-1.2.1-681.jar;" />
+		<ibator overwrite="true" configfile="${basedir}/ibatorConfig_oracle.xml" verbose="false">
+			<propertyset>
+				<propertyref name="generated.source.dir" />
+			</propertyset>
+		</ibator>
+	</target>
+</project>

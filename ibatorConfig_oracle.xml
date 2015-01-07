@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ibatorConfiguration PUBLIC "-//Apache Software Foundation//DTD Apache iBATIS Ibator Configuration 1.0//EN" "http://ibatis.apache.org/dtd/ibator-config_1_0.dtd" >
+<ibatorConfiguration >
+  <classPathEntry location="D:/jboss/jboss423/server/default/lib/ojdbc6.jar" />
+  <ibatorContext id="ora" targetRuntime="Ibatis2Java5" defaultModelType="hierarchical">
+    <ibatorPlugin type="org.apache.ibatis.ibator.plugins.SerializablePlugin"></ibatorPlugin>
+    <ibatorPlugin type="ibator.RegaltecIbatorPlugin"></ibatorPlugin>
+    <commentGenerator type="ibator.RegaltecCommentGenerator"></commentGenerator>
+    <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@172.168.1.10:1521:ora" userId="zm_gx" password="123" />
+	<!--change targetProject to src when build with ant-->
+    <javaModelGenerator targetPackage="com.free.assist.domain" targetProject="src" />
+    <sqlMapGenerator targetPackage="com.free.assist.dao.xml" targetProject="src" />
+    <daoGenerator targetPackage="com.free.assist.dao" targetProject="src" type="ibator.RegaltecDAOTemplate">
+      <property name="rootInterface" value="com.free.assist.dao.BaseDAO"/>
+    </daoGenerator>
+    
+    
+    <!--table schema="ccatsimp" tableName="T_IFACE_APPLICATION" domainObjectName="IfaceApplication">
+      <generatedKey column="APPLICATION_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="AVAILABLE_ON" property="availableDate" />
+      <columnOverride column="IS_AVAILABLE" property="available" javaType="boolean" />
+      <columnOverride column="UPDATE_ON" property="updateDate" />
+      <columnOverride column="UPDATE_BY" property="updateUser" />
+    </table-->
+    <table tableName="t_bus_release_trends" domainObjectName="BusReleaseTrends">
+      <generatedKey column="bill_id" sqlStatement="select sys_guid() from dual" />
+    </table>
+    <!--table tableName="t_supt_action" domainObjectName="SuptAction">
+      <generatedKey column="action_id" sqlStatement="select sys_guid() from dual" />
+    </table>
+    <table tableName="t_supt_task" domainObjectName="SuptTask">
+      <generatedKey column="task_id" sqlStatement="select seq_task_id.nextval from dual" />
+    </table>
+    <table tableName="t_supt_attach" domainObjectName="SuptAttach">
+      <generatedKey column="attach_id" sqlStatement="select sys_guid() from dual" />
+    </table>
+    
+    <table tableName="t_supt_point_info" domainObjectName="SuptPointInfo">
+      <generatedKey column="point_id" sqlStatement="select sys_guid() from dual" />
+    </table>    
+    
+    <table tableName="t_bus_release_news" domainObjectName="BusReleaseNews">
+      <generatedKey column="bill_id" sqlStatement="select sys_guid() from dual" />
+    </table>
+    <table tableName="t_bus_linepipe_knowledge" domainObjectName="BusLinePipeKnowledge">
+      <generatedKey column="content_id" sqlStatement="select sys_guid() from dual" />
+    </table>
+    <table tableName="t_bus_linepipe_know" domainObjectName="BusLinePipeKnow">
+      <generatedKey column="content_id" sqlStatement="select sys_guid() from dual" />
+    </table>
+    <table tableName="t_bus_linepipe_rule" domainObjectName="BusLinePipeRule">
+      <generatedKey column="content_id" sqlStatement="select sys_guid() from dual" />
+    </table>
+    
+    <table tableName="jforum_topics" domainObjectName="ForumTopics">
+    </table>
+    <table tableName="t_bus_linepipe_knowledge" domainObjectName="BusLinePipeKnowledge">
+      <generatedKey column="content_id" sqlStatement="select sys_guid() from dual" />
+    </table>
+    <table tableName="t_bus_linepipe_know" domainObjectName="BusLinePipeKnow">
+      <generatedKey column="content_id" sqlStatement="select sys_guid() from dual" />
+    </table>
+    <table tableName="t_bus_linepipe_rule" domainObjectName="BusLinePipeRule">
+      <generatedKey column="content_id" sqlStatement="select sys_guid() from dual" />
+    </table-->
+    
+  </ibatorContext>
+</ibatorConfiguration>

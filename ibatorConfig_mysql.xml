@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ibatorConfiguration PUBLIC "-//Apache Software Foundation//DTD Apache iBATIS Ibator Configuration 1.0//EN" "http://ibatis.apache.org/dtd/ibator-config_1_0.dtd" >
+<ibatorConfiguration >
+  <classPathEntry location="D:/jboss/jboss423/server/default/lib/mysql-connector-java-5.1.8-bin.jar" />
+  <ibatorContext id="ccatsimp" targetRuntime="Ibatis2Java5" defaultModelType="hierarchical">
+    <ibatorPlugin type="org.apache.ibatis.ibator.plugins.SerializablePlugin"></ibatorPlugin>
+    <ibatorPlugin type="ibator.RegaltecIbatorPlugin"></ibatorPlugin>
+    <commentGenerator type="ibator.RegaltecCommentGenerator"></commentGenerator>
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://10.5.238.8:3306/ccatsimp?useUnicode=true&amp;characterEncoding=utf-8" userId="root" password="marconi" />
+	<!--change targetProject to src when build with ant-->
+    <javaModelGenerator targetPackage="com.regaltec.blocimp.domain" targetProject="src" />
+    <sqlMapGenerator targetPackage="com.regaltec.blocimp.dao.xml" targetProject="src" />
+    <daoGenerator targetPackage="com.regaltec.blocimp.dao" targetProject="src" type="ibator.RegaltecDAOTemplate">
+      <property name="rootInterface" value="com.regaltec.blocimp.dao.BaseDAO"/>
+    </daoGenerator>
+    <table schema="ccatsimp" tableName="t_iface_daemon_error" domainObjectName="IfaceDaemonError">
+      <generatedKey column="TEXT_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table>
+    <!--table schema="ccatsimp" tableName="T_IFACE_APPLICATION" domainObjectName="IfaceApplication">
+      <generatedKey column="APPLICATION_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="AVAILABLE_ON" property="availableDate" />
+      <columnOverride column="IS_AVAILABLE" property="available" javaType="boolean" />
+      <columnOverride column="UPDATE_ON" property="updateDate" />
+      <columnOverride column="UPDATE_BY" property="updateUser" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_company" domainObjectName="IfaceCompany">
+      <generatedKey column="COMPANY_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="IS_AVAILABLE" property="available" />
+      <columnOverride column="UPDATE_ON" property="updateDate" />
+      <columnOverride column="UPDATE_BY" property="updateUser" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_conf_declare" domainObjectName="IfaceConfigDeclare">
+      <generatedKey column="DECLARE_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="IS_MATRIX" property="matrix" />
+      <columnOverride column="IS_AVAILABLE" property="available" />
+      <columnOverride column="UPDATE_ON" property="updateDate" />
+      <columnOverride column="UPDATE_BY" property="updateUser" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_conf_system" domainObjectName="IfaceConfigSystem">
+      <generatedKey column="APPLICATION_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="IS_AVAILABLE" property="available" />
+      <columnOverride column="CREATE_ON" property="createDate" />
+      <columnOverride column="UPDATE_ON" property="updateDate" />
+      <columnOverride column="UPDATE_BY" property="updateUser" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_conf_protocol" domainObjectName="IfaceConfigProtocol">
+      <generatedKey column="PROTOCOL_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="IS_AVAILABLE" property="available" />
+      <columnOverride column="CREATE_ON" property="createDate" />
+      <columnOverride column="UPDATE_ON" property="updateDate" />
+      <columnOverride column="UPDATE_BY" property="updateUser" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_conf_mapping" domainObjectName="IfaceConfigMapping">
+      <generatedKey column="MAPPING_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="IS_AVAILABLE" property="available" />
+      <columnOverride column="UPDATE_ON" property="updateDate" />
+      <columnOverride column="UPDATE_BY" property="updateUser" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="v_iface_conf_instance" domainObjectName="IfaceConfigInstance">
+      <generatedKey column="INSTANCE_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="IS_AVAILABLE" property="available" />
+      <columnOverride column="UPDATE_ON" property="updateDate" />
+      <columnOverride column="UPDATE_BY" property="updateUser" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_log_listener" domainObjectName="IfaceLogListener">
+      <generatedKey column="LISTENER_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="CREATE_ON" property="createDate" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_log_monitor" domainObjectName="IfaceLogMonitor">
+      <generatedKey column="MONITOR_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="REQUEST_XML" property="requestXML" jdbcType="TEXT" />
+      <columnOverride column="RESULT_XML" property="resultXML" jdbcType="TEXT" />
+      <columnOverride column="IS_AVAILABLE" property="available" />
+      <columnOverride column="UPDATE_ON" property="updateDate" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_log_repair" domainObjectName="IfaceLogRepair">
+      <generatedKey column="REPAIR_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="REPAIR_ON" property="repairDate" />
+      <columnOverride column="REPAIR_BY" property="repairUser" />
+      <columnOverride column="COMMIT_ON" property="commitDate" />
+      <columnOverride column="COMMIT_BY" property="commitUser" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_log_repository" domainObjectName="IfaceLogRepository">
+      <generatedKey column="REPOSITORY_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="TRACE_TEXT" property="traceText" jdbcType="TEXT" />
+      <columnOverride column="XML_DOCUMENT" property="xmlDocument" jdbcType="TEXT" />
+      <columnOverride column="CREATE_ON" property="createDate" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_log_repository_his" domainObjectName="IfaceLogRepositoryHis">
+      <generatedKey column="REPOSITORY_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="TRACE_TEXT" property="traceText" jdbcType="TEXT" />
+      <columnOverride column="XML_DOCUMENT" property="xmlDocument" jdbcType="LONGTEXT" />
+      <columnOverride column="CREATE_ON" property="createDate" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_log_strategy" domainObjectName="IfaceLogStrategy">
+      <generatedKey column="STRATEGY_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="IS_AVAILABLE" property="available" />
+      <columnOverride column="UPDATE_ON" property="updateDate" />
+      <columnOverride column="UPDATE_BY" property="updateUser" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_supt_check" domainObjectName="SuptCheck">
+      <generatedKey column="CHECK_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_supt_check_out" domainObjectName="SuptCheckOut">
+      <generatedKey column="send_id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="IS_AVAILABLE" property="available" />
+      <columnOverride column="in_node" property="inNode" jdbcType="TEXT" />
+      <columnOverride column="APPEND_NODES" property="appendNodes" jdbcType="TEXT" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_log_event" domainObjectName="IfaceLogEvent">
+      <generatedKey column="EVENT_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="DESCRIPTION" property="description" jdbcType="TEXT" />
+      <columnOverride column="DOCUMENT" property="document" jdbcType="LONGTEXT" />
+    </table>
+    <table schema="ccatsimp" tableName="t_iface_log_event_his" domainObjectName="IfaceLogEventHis">
+      <generatedKey column="EVENT_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="DESCRIPTION" property="description" jdbcType="TEXT" />
+      <columnOverride column="DOCUMENT" property="document" jdbcType="LONGTEXT" />
+    </table>-->
+    <!--
+    <table schema="ccatsimp" tableName="t_supt_background_conf" domainObjectName="SuptBackgroundConf">
+    </table>-->
+    <!--table schema="ccatsimp" tableName="t_supt_face" domainObjectName="SuptFace" alias="sf">
+      <generatedKey column="cimp_face_id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="xmlstr" property="xmlstr" jdbcType="TEXT" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_supt_save_value" domainObjectName="SuptSaveValue">
+      <generatedKey column="sava_id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="operUserID" property="operuserid" jdbcType="TEXT" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_supt_return_valid" domainObjectName="SuptReturnValid">
+      <generatedKey column="return_valid_id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="field_name" property="fieldName" jdbcType="TEXT" />
+      <columnOverride column="field_path" property="fieldPath" jdbcType="TEXT" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_daemon_attachment" domainObjectName="IfaceDaemonAttachment">
+      <generatedKey column="ATTACHMENT_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="IS_AVAILABLE" property="available" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_daemon_document" domainObjectName="IfaceDaemonDocument">
+      <generatedKey column="TEXT_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="IS_AVAILABLE" property="available" />
+      <columnOverride column="INPUT_XML" property="inputXML" jdbcType="TEXT" />
+      <columnOverride column="RESULT_XML" property="resultXML" jdbcType="TEXT" />
+    </table-->
+	<!--table schema="ccatsimp" tableName="t_supt_face_trigger" domainObjectName="SuptFaceTrigger">
+      <generatedKey column="TRIGGER_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+	  <columnOverride column="CREATE_ON" property="createDate" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_supt_return" domainObjectName="SuptReturn">
+      <generatedKey column="return_id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_sys_alarm" domainObjectName="SysAlarm">
+      <generatedKey column="alarm_id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_sys_attachment" domainObjectName="SysAttachment">
+      <generatedKey column="Attachment_Id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_sys_dic_config" domainObjectName="SysDicConfig">
+      <generatedKey column="Dictionary_Id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="v_sys_dic_item" domainObjectName="SysDicItem">
+      <generatedKey column="Item_Id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_sys_module" domainObjectName="SysModule">
+      <generatedKey column="Module_Id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_sys_role" domainObjectName="SysRole">
+      <generatedKey column="RoleId" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_sys_role_module" domainObjectName="SysRoleModule">
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_sys_service_config" domainObjectName="SysServiceConfig">
+      <generatedKey column="Service_Id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_sys_unit" domainObjectName="SysUnit">
+      <generatedKey column="Unit_Id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_sys_unit_role" domainObjectName="SysUnitRole">
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_sys_user" domainObjectName="SysUser">
+      <generatedKey column="User_Id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_sys_user_role" domainObjectName="SysUserRole">
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_sys_user_unit" domainObjectName="SysUserUnit">
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_sys_parameter_conf" domainObjectName="SysParameterConf">
+    	<generatedKey column="PAR_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_supt_text_storage" domainObjectName="SuptTextStorage">
+      <generatedKey column="STORAGE_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="STORAGE_TEXT" property="storageText" jdbcType="TEXT" />
+      <columnOverride column="IS_AVAILABLE" property="available" />
+      <columnOverride column="CREATE_ON" property="createDate" />
+      <columnOverride column="UPDATE_ON" property="updateDate" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_supt_tactic_element" domainObjectName="SuptTaticElement">
+      <generatedKey column="elementId" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_supt_tactic_relation" domainObjectName="SuptTaticRelation">
+      <generatedKey column="tacticRelationId" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_supt_tactic_group" domainObjectName="SuptTaticGroup">
+      <generatedKey column="taticGoupId" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_supt_tactic_Instance" domainObjectName="SuptTaticInstance">
+      <generatedKey column="taticInstanceId" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_supt_iface_group_relation" domainObjectName="SuptIfaceGroupRelation">
+      <generatedKey column="iface_Group_Id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_supt_face_errtack" domainObjectName="SuptFaceErrTack">
+      <generatedKey column="err_id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_supt_value_list" domainObjectName="SuptValueList" alias="sv">
+      <generatedKey column="order_id" sqlStatement="select replace(uuid(), '-', '') from dual" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="t_iface_conf_server" domainObjectName="IfaceConfigServer">
+      <generatedKey column="SERVER_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="UPDATE_ON" property="updateDate" />
+      <columnOverride column="UPDATE_BY" property="updateUser" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="v_iface_conf_mapping" domainObjectName="IfaceConfigMapping" enableDeleteByPrimaryKey="false" enableInsert="false" enableUpdateByExample="false" enableUpdateByPrimaryKey="false" enableDeleteByExample="false" enableSelectByPrimaryKey="true" enableCountByExample="true" enableSelectByExample="true">
+      <columnOverride column="IS_AVAILABLE" property="available" />
+      <columnOverride column="UPDATE_ON" property="updateDate" />
+      <columnOverride column="UPDATE_BY" property="updateUser" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="v_iface_log_repository" domainObjectName="IfaceLogRepository" enableDeleteByPrimaryKey="false" enableInsert="false" enableUpdateByExample="false" enableUpdateByPrimaryKey="false" enableDeleteByExample="false" enableSelectByPrimaryKey="true" enableCountByExample="true" enableSelectByExample="true">
+      <generatedKey column="REPOSITORY_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="TRACE_TEXT" property="traceText" jdbcType="TEXT" />
+      <columnOverride column="XML_DOCUMENT" property="xmlDocument" jdbcType="TEXT" />
+      <columnOverride column="CREATE_ON" property="createDate" />
+    </table-->
+    <!--table schema="ccatsimp" tableName="v_iface_conf_protocol" domainObjectName="IfaceConfigProtocol" enableDeleteByPrimaryKey="false" enableInsert="false" enableUpdateByExample="false" enableUpdateByPrimaryKey="false" enableDeleteByExample="false" enableSelectByPrimaryKey="true" enableCountByExample="true" enableSelectByExample="true">
+      <generatedKey column="PROTOCOL_ID" sqlStatement="select replace(uuid(), '-', '') from dual" />
+      <columnOverride column="IS_AVAILABLE" property="available" />
+      <columnOverride column="CREATE_ON" property="createDate" />
+      <columnOverride column="UPDATE_ON" property="updateDate" />
+      <columnOverride column="UPDATE_BY" property="updateUser" />
+    </table-->
+  </ibatorContext>
+</ibatorConfiguration>

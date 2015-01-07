@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="GenBlocimpCode"
+  id="myeclipse.1268806534537"
+  context-root="/GenBlocimpCode"
+  j2ee-spec="1.4"
+  archive="GenBlocimpCode.war">
+  <attributes>
+    <attribute name="webrootdir" value="web" />
+  </attributes>
+</project-module>
+
